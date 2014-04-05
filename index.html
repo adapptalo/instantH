@@ -43,6 +43,11 @@
                             alert("loop");
                             lla.loop('assets/cymbal.mp3', successHandler, errorHandler);
                         }
+                        function stoploop()
+                        {
+                            alert("stoploop");
+                            lla.stop('assets/cymbal.mp3', successHandler, errorHandler);
+                        }
                         function successHandler (result) {
                             alert( result );
                         }
@@ -167,7 +172,7 @@
                     <div class="drum" id="bongo" ontouchstart="play('bongo');" ontouchend="touchEnd(event);">Bongo</div>
                     <!--<div class="container"><div class="box"></div></div>-->
                     <div class="loop drum" ontouchstart="loop();" >Loop</div>
-                    <div class="loop_stop hide drum" ontouchstart="overlap();" >Stop Loop</div>
+                    <div class="loop_stop hide drum" ontouchstart="stoploop();" >Stop Loop</div>
                     <div class="overlap drum" ontouchstart="overlap();" >Overlap</div>
                 </div>
                  <ol>
