@@ -12,18 +12,22 @@
 			
 			function onBodyLoad() {		
 				document.addEventListener("deviceready", onDeviceReady, false);
+                                alert("ere");
+                                
 			}
 			
 			function onDeviceReady() {
 				if( window.plugins && window.plugins.LowLatencyAudio ) {
-					
+					alert("entra aqui??");
 					lla = window.plugins.LowLatencyAudio;	
 					
 					lla.preloadFX('assets/bass.mp3', 'assets/bass.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 					lla.preloadFX('assets/snare.mp3', 'assets/snare.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 					lla.preloadFX('assets/highhat.mp3', 'assets/highhat.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 					lla.preloadFX('assets/bongo.mp3', 'assets/bongo.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	    
-				}
+				}else{
+                                    alert("o aqui??");
+                                }
 			}
 			
 			function play(drum) {
