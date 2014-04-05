@@ -40,7 +40,15 @@
 			}
                         function loop()
                         {
-                            lla.loop('cymbal');
+                            alert("loop");
+                            lla.loop('cymbal', successHandler, errorHandler);
+                        }
+                        function successHandler (result) {
+                            alert( result );
+                        }
+
+                        function errorHandler (error) {
+                            alert( error );
                         }
                         function overlap()
                         {
