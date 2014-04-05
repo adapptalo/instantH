@@ -61,7 +61,7 @@ var sounds = {
 
 function onDeviceReady()
 {
-
+        alert("entra qui...");
 	document.addEventListener("pause", onAppPause, false);
 
 	var android = navigator.userAgent.search( "Android" ) >= 0;
@@ -103,6 +103,7 @@ function onDeviceReady()
 
 function scrollToTop() {
 	var target = $(".viewNavigator_contentHolder");
+	alert("scrollToTop");
 	
 	//disable touch scroll
 	target.css({
@@ -132,7 +133,8 @@ function resetScroller() {
 }
 
 function getStopParent(target) {
-
+    alert("getStopParent");
+	
     while ( target.get(0).nodeType != "span" ) {
 
         target = target.parent();
@@ -165,7 +167,9 @@ function getNonSVGElement(target) {
 }
 
 function touchStart( event ) {
-	var element = getNonSVGElement($(event.target));
+	alert("touchStart");
+
+        var element = getNonSVGElement($(event.target));
     var id = element.attr("id");
 	touchMap[ id ].startTime = new Date().getTime();
 
@@ -180,7 +184,8 @@ function touchStart( event ) {
 }
 
 function touchMove( event ) {
-	var element = getNonSVGElement($(event.target));
+	alert("touchMove");
+    var element = getNonSVGElement($(event.target));
     var id = element.attr("id");
     var touchInfo = touchMap[ id ];
 	
@@ -190,7 +195,8 @@ function touchMove( event ) {
 }
 
 function touchEnd( event ) {
-	var element = getNonSVGElement($(event.target));
+	alert("touchEnd");
+        var element = getNonSVGElement($(event.target));
     var id = element.attr("id");
     //alert(id);
 
@@ -220,6 +226,7 @@ function touchEnd( event ) {
 }
 
 function renderMain() {
+    alert("renderMain");
 	document.removeEventListener("backbutton", onBackButton);
 	view = "main";
 
@@ -273,6 +280,7 @@ function renderAbout() {
 }
 
 function acceptClick() {
+    alert("acceptClick");
 	var now = new Date().getTime();
 	var result = false
 	if (now-lastClick > 500){
@@ -400,6 +408,7 @@ function soundFxAssetStop(event) {
 }
 
 function updateCSS() {
+    alert("updateCSS");
     var ss = document.styleSheets;
     var width = $(window).width();
     
