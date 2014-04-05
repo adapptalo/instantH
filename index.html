@@ -41,7 +41,7 @@
                         function loop()
                         {
                             alert("loop");
-                            lla.loop('cymbal', successHandler, errorHandler);
+                            lla.loop('assets/cymbal.mp3', successHandler, errorHandler);
                         }
                         function successHandler (result) {
                             alert( result );
@@ -62,6 +62,14 @@
                         }
 			
 		</script>
+                <script>
+                $(function() {
+                $('.loop').click(function() {
+                $('.loop_stop').style.visibility= 'visible';
+                $('.loop').style.visibility= 'hide';
+                });
+                });
+                </script>
 		<style>
 			* {
 				-webkit-overflow-scrolling: !important;
@@ -159,6 +167,7 @@
                     <div class="drum" id="bongo" ontouchstart="play('bongo');" ontouchend="touchEnd(event);">Bongo</div>
                     <!--<div class="container"><div class="box"></div></div>-->
                     <div class="loop drum" ontouchstart="loop();" >Loop</div>
+                    <div class="loop_stop hide drum" ontouchstart="overlap();" >Stop Loop</div>
                     <div class="overlap drum" ontouchstart="overlap();" >Overlap</div>
                 </div>
                  <ol>
