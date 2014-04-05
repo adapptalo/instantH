@@ -162,19 +162,19 @@
                     <div class="overlap drum" ontouchstart="overlap();" >Overlap</div>
                 </div>
                  <ol>
-                    <li><a href="javascript:LowLatencyAudio.preloadAudio('cymbal', 'assets/cymbal.mp3', 3, successHandler, errorHandler);">preload cymbal</a></li>
-                    <li><a href="javascript:LowLatencyAudio.preloadFX('drum', 'assets/drum.mp3', successHandler, errorHandler);">preload drum</a></li>
-                    <li><a href="javascript:LowLatencyAudio.play('cymbal', successHandler, errorHandler);">play cymbal</a></li>
-                    <li><a href="javascript:LowLatencyAudio.play('drum', successHandler, errorHandler);">play drum</a></li>
-                    <li><a href="javascript:LowLatencyAudio.unload('cymbal', successHandler, errorHandler);">unload cymbal</a></li>
-                    <li><a href="javascript:LowLatencyAudio.unload('drum', successHandler, errorHandler);">unload drum</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.preloadAudio('cymbal', 'assets/cymbal.mp3', 3, successHandler, errorHandler);">preload cymbal</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.preloadFX('drum', 'assets/drum.mp3', successHandler, errorHandler);">preload drum</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.play('cymbal', successHandler, errorHandler);">play cymbal</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.play('drum', successHandler, errorHandler);">play drum</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.unload('cymbal', successHandler, errorHandler);">unload cymbal</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.unload('drum', successHandler, errorHandler);">unload drum</a></li>
                     <li><a href="javascript:overlap();">overlap</a></li>
-                    <li><a href="javascript:LowLatencyAudio.loop('cymbal', successHandler, errorHandler);">loop</a></li>
-                    <li><a href="javascript:LowLatencyAudio.stop('cymbal', successHandler, errorHandler);">stop cymbal</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.loop('cymbal', successHandler, errorHandler);">loop</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.stop('cymbal', successHandler, errorHandler);">stop cymbal</a></li>
                 </ol>
                 <ol>
-                    <li><a href="javascript:LowLatencyAudio.preloadAudio('cymbal123', 'assets/cymbal123.mp3', 3, successHandler, errorHandler);">error - missing Audio asset</a></li>
-                    <li><a href="javascript:LowLatencyAudio.preloadFX('drum123', 'assets/drum123.mp3', successHandler, errorHandler);">error - missing Fx asset</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.preloadAudio('cymbal123', 'assets/cymbal123.mp3', 3, successHandler, errorHandler);">error - missing Audio asset</a></li>
+                    <li><a href="javascript:window.plugins.LowLatencyAudio.preloadFX('drum123', 'assets/drum123.mp3', successHandler, errorHandler);">error - missing Fx asset</a></li>
                 </ol>
 	</body>
 </html>
