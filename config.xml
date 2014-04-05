@@ -16,5 +16,5 @@
     <author href="https://adapptalo.com" email="info@adapptalo.com">
       EasyDraw
     </author>
-
+<gap:plugin name="com.rjfun.cordova.plugin.lowlatencyaudio" version="1.0" />
 </widget>
