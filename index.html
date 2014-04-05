@@ -41,12 +41,13 @@
                         function loop()
                         {
                             alert("loop");
-                            lla.loop('assets/cymbal.mp3', successHandler, errorHandler);
+                            lla.preloadAudio('loopcymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                            lla.loop('loopcymbal', successHandler, errorHandler);
                         }
                         function stoploop()
                         {
                             alert("stoploop");
-                            lla.stop('assets/cymbal.mp3', successHandler, errorHandler);
+                            lla.stop('loopcymbal', successHandler, errorHandler);
                         }
                         function successHandler (result) {
                             alert( result );
