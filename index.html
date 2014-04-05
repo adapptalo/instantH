@@ -156,7 +156,8 @@
                     <div class="drum" id="snare" ontouchstart="play('snare');" ontouchend="touchEnd(event);">Snare</div>
                     <div class="drum" id="bongo" ontouchstart="play('bongo');" ontouchend="touchEnd(event);">Bongo</div>
                     <!--<div class="container"><div class="box"></div></div>-->
-                    <div class="overlap" ontouchstart="overlap();" >Overlap</div>
+                    <div class="drum" ><a href="javascript:window.plugins.LowLatencyAudio.loop('cymbal', successHandler, errorHandler);">loop</a></div>
+                    <div class="overlap drum" ontouchstart="overlap();" >Overlap</div>
                 </div>
 	</body>
 </html>
