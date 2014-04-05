@@ -25,6 +25,7 @@
 					lla.preloadFX('assets/bongo.mp3', 'assets/bongo.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
                                         lla.preloadFX('cymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 					lla.preloadFX('drum', 'assets/drum.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	    
+                                        lla.preloadFX('loopcymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 				}else{
                                     alert("No plugin installed!!");
                                 }
@@ -41,7 +42,7 @@
                         function loop()
                         {
                             alert("loop");
-                            lla.preloadAudio('loopcymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                            
                             lla.loop('loopcymbal', successHandler, errorHandler);
                         }
                         function stoploop()
