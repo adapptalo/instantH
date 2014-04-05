@@ -23,8 +23,12 @@
 					lla.preloadFX('assets/snare.mp3', 'assets/snare.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 					lla.preloadFX('assets/highhat.mp3', 'assets/highhat.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 					lla.preloadFX('assets/bongo.mp3', 'assets/bongo.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
-                                        lla.preloadAudio('cymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                                        lla.preloadFX('cymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
 					lla.preloadFX('drum', 'assets/drum.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	                                          
+                                        //lla.unload('cymbal', successHandler, errorHandler);
+                                        lla.preloadAudio('background', 'assets/background.mp3', 1);
+                    
+                    
 				}else{
                                     alert("No plugin installed!!");
                                 }
@@ -42,12 +46,12 @@
                         {
                             alert("loop");
                             
-                            lla.loop('loopcymbal', successHandler, errorHandler);
+                            lla.loop('background', successHandler, errorHandler);
                         }
                         function stoploop()
                         {
                             alert("stoploop");
-                            lla.stop('loopcymbal', successHandler, errorHandler);
+                            lla.stop('background', successHandler, errorHandler);
                         }
                         function successHandler (result) {
                             alert( result );
