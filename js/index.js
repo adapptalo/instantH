@@ -77,10 +77,10 @@ function onDeviceReady()
         var sound = sounds.effects[x];
         effectsMap[ sound.id ] = sound;
         if ( sound.duration > 15000 || !android ) {
-        	window.LowLatencyAudio.preloadAudio( sound.id, sound.path, voices );
+        	window.plugins.LowLatencyAudio.preloadAudio( sound.id, sound.path, voices );
         }
         else {
-        	window.LowLatencyAudio.preloadFX( sound.id, sound.path );
+        	window.plugins.LowLatencyAudio.preloadFX( sound.id, sound.path );
         }
         
     }
@@ -89,7 +89,7 @@ function onDeviceReady()
     for ( var x=0; x < sounds.ambient.length; x++ ) {
         var sound = sounds.ambient[x];
         effectsMap[ sound.id ] = sound;
-        window.LowLatencyAudio.preloadAudio( sound.id, sound.path, 1 );
+        window.plugins.LowLatencyAudio.preloadAudio( sound.id, sound.path, 1 );
     }
     
     window.addEventListener("statusTap", function() {
@@ -326,7 +326,7 @@ function ambientAssetTap(event) {
     if ( element.hasClass("active") ) {
         element.removeClass("active");
         asset.playing = false;
-        window.LowLatencyAudio.stop( id );
+        window.plugins.LowLatencyAudio.stop( id );
     }
     else {
 
@@ -337,7 +337,7 @@ function ambientAssetTap(event) {
     	
         element.addClass("active");
         asset.playing = true;
-        window.LowLatencyAudio.loop( id );
+        window.plugins.LowLatencyAudio.loop( id );
     }
 }
 
@@ -371,7 +371,7 @@ function soundFxAssetTap(event) {
     }
     updateAssetHighlight( id );
     asset.playing = true;
-    window.LowLatencyAudio.play( id );
+    window.plugins.LowLatencyAudio.play( id );
     return true;
 }
 
@@ -395,7 +395,7 @@ function soundFxAssetStop(event) {
     $("#"+id).removeClass("active");
     clearTimeout( timeouts[id] );
     asset.playing = false;
-    window.LowLatencyAudio.stop( id );
+    window.plugins.LowLatencyAudio.stop( id );
 
     event.preventDefault();
     if (event.stopImmediatePropagation) {
@@ -457,7 +457,7 @@ function onAppPause() {
 	if ( android ) {
 		for ( var x=0; x < sounds.ambient.length; x++ ) {
 		    var sound = sounds.ambient[x]; 
-		    window.LowLatencyAudio.stop( sound.id );
+		    window.plugins.LowLatencyAudio.stop( sound.id );
 		    $("#"+sound.id).removeClass("active");
 		    clearTimeout( timeouts[sound.id] );
 		    sound.playing = false;
@@ -465,7 +465,7 @@ function onAppPause() {
 		
 		for ( var x=0; x < sounds.effects.length; x++ ) {
 		    var sound = sounds.effects[x];
-			window.LowLatencyAudio.stop( sound.id );
+			window.plugins.LowLatencyAudio.stop( sound.id );
 		    $("#"+sound.id).removeClass("active");
 		    clearTimeout( timeouts[sound.id] );
 		    sound.playing = false;
