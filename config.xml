@@ -13,10 +13,8 @@
       An example for phonegap build docs. 
     </description>
 
-    <author href="https://build.phonegap.com" email="support@phonegap.com">
-      Hardeep Shoker 
+    <author href="https://adapptalo.com" email="info@adapptalo.com">
+      EasyDraw
     </author>
 
-    <!-- We'll include the Barcode plugin as an example -->
-    <gap:plugin name="com.phonegap.plugins.LowLatency" />
 </widget>
