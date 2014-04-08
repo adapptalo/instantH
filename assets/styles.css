@@ -1,7 +1,7 @@
 body {
-    background-image:url('background.jpg'); 
+    background-image:url('background-clouds.jpg'); 
     background-position: -100px -100px;
-    background-size: cover;
+    //background-size: cover;
     margin:0px;
     padding:0px;
     font-family:sans-serif;
