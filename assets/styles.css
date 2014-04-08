@@ -1,6 +1,7 @@
 body {
     background-image:url('background.jpg'); 
     background-position: -100px -100px;
+    background-size: cover;
     margin:0px;
     padding:0px;
     font-family:sans-serif;
