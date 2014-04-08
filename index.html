@@ -5,26 +5,89 @@
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <title>Scrolling Parallax Background</title>
         <link rel="stylesheet" href="assets/styles.css">
+	<script src="cordova.js"></script>        
         <script src="js/zepto.js"></script>
         <script src="js/touch.js"></script>
         <script src="js/raf.js"></script>
         <script src="js/index.js"></script>
+        <script type="text/javascript">
+                var lla;
+
+                function onBodyLoad() {		
+                        document.addEventListener("deviceready", onDeviceReady, false);
+                }
+
+                function onDeviceReady() {
+                        if( window.plugins && window.plugins.LowLatencyAudio ) {
+                                //alert("entra aqui...");
+                                lla = window.plugins.LowLatencyAudio;	
+
+                                lla.preloadFX('assets/bass.mp3', 'assets/bass.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                                lla.preloadFX('assets/snare.mp3', 'assets/snare.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                                lla.preloadFX('assets/highhat.mp3', 'assets/highhat.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                                lla.preloadFX('assets/bongo.mp3', 'assets/bongo.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                                lla.preloadFX('cymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                                lla.preloadFX('drum', 'assets/drum.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	                                          
+                                //lla.unload('cymbal', successHandler, errorHandler);
+                                lla.preloadAudio('background', 'assets/background.mp3', 1);
+
+
+                        }else{
+                            alert("No plugin installed!!");
+                        }
+                }
+
+                function play(drum) {
+                        document.getElementById(drum).className = 'drum touched';
+                        lla.play('assets/' + drum + '.mp3');
+                }
+
+                function touchEnd(event) {
+                        event.target.className = 'drum';
+                }
+                function loop()
+                {
+                    lla.loop('background', successHandler, errorHandler);
+                }
+                function stoploop()
+                {
+                    lla.stop('background', successHandler, errorHandler);
+                }
+                function successHandler (result) {
+                    //alert( result );
+                }
+
+                function errorHandler (error) {
+                    alert( error );
+                }
+                function overlap()
+                {
+                    setTimeout( function() {lla.play('cymbal');}, 300 );
+                    setTimeout( function() {lla.play('drum');}, 600 );
+                    setTimeout( function() {lla.play('cymbal');}, 900 );
+                    setTimeout( function() {lla.play('drum');}, 900 );
+                    setTimeout( function() {lla.play('drum');}, 950 );
+                    setTimeout( function() {lla.play('drum');}, 2000 );
+                    setTimeout( function() {lla.play('cymbal');}, 2000 );
+                }
+
+        </script>
     </head>
-    <body>
+    <body onload="onBodyLoad();">
         
         <div class="content"> 
             
+            <div class="drum" id="bass" ontouchstart="play('bass');" ontouchend="touchEnd(event);">Bass</div>
+            <div class="drum" id="highhat" ontouchstart="play('highhat');" ontouchend="touchEnd(event);">High Hat</div>
+            <div class="drum" id="snare" ontouchstart="play('snare');" ontouchend="touchEnd(event);">Snare</div>
+            <div class="drum" id="bongo" ontouchstart="play('bongo');" ontouchend="touchEnd(event);">Bongo</div>
+            <!--<div class="container"><div class="box"></div></div>-->
+            <div class="loop drum" ontouchstart="loop();" >Loop</div>
+            <div class="loop_stop hide drum" ontouchstart="stoploop();" >Stop Loop</div>
+            <div class="overlap drum" ontouchstart="overlap();" >Overlap</div>
             
             <div id="navigation" class="page transition">
-                <button class="forward"><img src="assets/airplane.png" /></button>
-                <button class="forward"><img src="assets/crosshair.png" /></button>
-                <button class="forward"><img src="assets/currency.png" /></button>
-                <button class="forward"><img src="assets/leaf.png" /></button>
-                <button class="forward"><img src="assets/airplane.png" /></button>
-                <button class="forward"><img src="assets/crosshair.png" /></button>
-                <button class="forward"><img src="assets/currency.png" /></button>
-                <button class="forward"><img src="assets/leaf.png" /></button>
-                <button class="forward"><img src="assets/airplane.png" /></button>
+                <button ontouchstart="play('bass');" ontouchend="touchEnd(event);" class="forward"><img src="assets/airplane.png" /></button>
                 <button class="forward"><img src="assets/crosshair.png" /></button>
                 <button class="forward"><img src="assets/currency.png" /></button>
                 <button class="forward"><img src="assets/leaf.png" /></button>  
