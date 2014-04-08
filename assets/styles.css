@@ -1,297 +1,127 @@
-
-
 body {
-    /*
-    font-family: 'creepsvilleregular'; */
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    background-color:#555;
-    color: #FF7F00;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-
-.viewNavigator_header_title {
-    font-family: 'creepsvilleregular';
-    font-size: 1.5em;
-
-}
-
-
-body, html {
+    background-image:url('background.jpg'); 
+    background-position: -100px -100px;
     margin:0px;
-    height: 100%;
-    oveflow: hidden;
+    padding:0px;
+    font-family:sans-serif;
+    color:white;
 }
 
-
-#body {
-    width:100%;
-
-/*
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-
-    transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);*/
+.content {  
+    position:fixed;
+    top:20px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    overflow:hidden;
+    margin-bottom:0px;
+    padding:0px 10px;
+    transform: translate3d( 0px,0px,0px)
 }
 
-a {
-    color: black;
-}
-a:hover {
-    color: white;
-}
-
-.stop {
-    display: none;
-    position: absolute;
-    top:0px;
+.footer {
+    position:fixed;
+    height:22px;
+    left:0px;
     right:0px;
     bottom:0px;
-    width:1.5em;
-    min-width:50px;
-    border: none;
+    background: rgba(255,255,255,0.9);
+    color:888;
+    text-align:center;
+    padding:5px 0px 0px 0px;
+    border-top:5px solid #CCC;
+    font-size:12px;
 }
 
-.active .stop {
-    display: block;
+.footer.active {
+    background: rgba(200,200,200,0.9);
 }
 
-.multicolumn {
-}
-
-@media (min-width: 600px) {
-    .multicolumnList
-    {
-        -moz-column-count:2; /* Firefox */
-        -webkit-column-count:2; /* Safari and Chrome */
-        column-count:2;
-
-        -moz-column-gap:20px; /* Firefox */
-        -webkit-column-gap:20px; /* Safari and Chrome */
-        column-gap:20px;
-    }
-}
-
-
-
-.headingSection {
-    background: #000;
-    color: #825000;
-    padding:0px;
-    margin: 0px;
-    clear:both;
-}
-
-#ambientSounds,
-#soundEffects{
-    padding:0;
-    margin:0;
-    margin-left:0px;
-    border:none;
-    list-style-type: none;
-}
-
-#ambientSounds div polygon, #soundEffects div polygon {
-
-    vertical-align: middle;
-    fill:#FF7F00;
-}
-
-#ambientSounds div.active polygon, #soundEffects div.active polygon {
-
-    fill:#000;
-}
-
-#stopIcon {
-    fill:#000;
-}
-
-
-#ambientSounds div #stopIcon, #soundEffects div #stopIcon {
-
-    display: none;
-    visibility: hidden;
-}
-
-#ambientSounds div.active #stopIcon, #soundEffects div.active #stopIcon {
-
-    display: inline;
-    visibility: visible;
-}
-
-
-#ambientSounds div #playIcon, #soundEffects div #playIcon {
-
-    display: inline;
-    visibility: visible;
-}
-
-#ambientSounds div.active #playIcon, #soundEffects div.active #playIcon {
-
-    display: none;
-    visibility: hidden;
-}
-
-
-#ambientSounds div,
-#soundEffects div,
-li {
-    padding:0px;
-    padding-top:10px;
-    position: relative;
-    font-size: 1em;
-    height:40px;
-/*
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-
-    transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);*/
-    font-size: 1.5em;
-}
-
-div.effectLi  {
-    /*background-image: url("images/play.png");
-    background-position: 10px center;
-    background-repeat: no-repeat;   */
-    background-color: #111;
-    color:#FF7F00;
-}
-
-div.ambientLi {
-    /*background-image: url("images/play.png");
-    background-position: 10px center;
-    background-repeat: no-repeat;   */
-    background-color: #111;
-    color:#FF7F00;
-}
-
-.ambientLi.active {
-    /*background-image: url("images/stop.jpg");*/
-}
-
-div.effectLi.active,
-div.ambientLi.active {
-    background-color: #FF7F00;
-    color:#000;
-}
-
-#loading {
-    margin-top:3em;
-    width: 100%;
-    text-align: center;
-    font-size: 2em;
-    color: #FF7F00;
-    text-shadow: 0.1em 0.1em 0.05em #000;
-}
-
-/*
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px) {
-
-    #wrapper {
-        padding: 50px 25px 25px 25px;
-    }
-}*/
-
-.row {
-	display:block;
-	width:100%;
-}
-
-.cell {
-	float:left;
-	margin-left:0px;
-}
-
-
-#aboutButton {
-    margin: 1em;
-    padding: 1em 2em;
-    border: 1px solid #666;
-    background: #444;
-    color:#FF7F00;
-    font-family: arial;
-    font-size: 1.25em;
-}
-
-#back {
-    margin: 0px;
-    padding: 1em 2em;
-    border: 1px solid #666;
-    color: #000;
-    background:#FF7F00;
-    font-family: arial;
-    font-size: 1.25em;
-    margin-right:20px;
-    margin-bottom: 20px;
-}
-
-#about {
-    font-family: arial;
-    color: white;
-    font-size: 0.5em;
-    padding:20px;
-}
-
-#about a{
-    color: #FF7F00;
-}
-
-#about li{
-    border: none;
-    padding:0px .5em;
-}
-
-.normalList {
-    list-style: circle;
-}
-
-.normalList li {
-	text-indent:0px;
-    margin:0px;
-    padding:0px;
-}
-
-
-.tabbar {
-    border: 1px solid orange;
-    height: 30px;
-    list-style-type:none;
+button {
+    width:80px;
+    height:80px;
+    float:left;
     margin:10px;
-    padding:0;
-
-    border-radius: 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,1);
 }
 
-.tabbar li {
-    border-right: 1px solid orange;
-    height: 30px;
-    float: left;
-    margin-left: 0px;
-    line-height: 28px;
-    padding: 0px;
-    width: 33%;
-    text-align: center;
-}
-.tabbar li:last-child
-{
-    border-right: none;
+.back {
+    background: url('back_arrow.png'); 
+    background-repeat: no-repeat;
+    margin:20px;
+    margin-left:-5px;
+    margin-top:10px;
+    padding:0px;
+    border:none;
+    width:50px;
+    height:50px;
+    float:none;
 }
 
-.tabbar li.selected {
-    background: orange;
-    color:black;
-}
-
-.right {
+.title {
+    top: 20px;
+    left: 60px;
     position: absolute;
-    right:8px;
-    top:8px;
+    font-size: 20pt;
+}
+
+.page_content {
+    position:relative;   
+}
+
+#main_container {
+    width:90%;
+    margin: 10px;
+    font-size: 14pt;
+}
+
+#main_container .forward {
+    float:none;
+    width:100%;
+    padding:0px;
+    margin:0px;
+    height:40px;
+}
+
+/* using this media query to force center content on my android device (samsung galaxy s4 )*/
+@media screen and (device-aspect-ratio: 9/16) {
+    #navigation {  
+        padding:0px 30px;
+    }
+}
+
+
+/*  PAGE TRANSITIONS:
+    http://coenraets.org/blog/2013/03/hardware-accelerated-page-transitions-for-mobile-web-apps-phonegap-apps/
+*/
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding:0px 10px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+ 
+.page.left {
+    left: -100%;
+}
+ 
+.page.center {
+    left: 0;
+}
+ 
+.page.right {
+    left: 100%;
+}
+ 
+.page.transition {
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
 }
