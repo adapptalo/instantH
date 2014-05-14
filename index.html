@@ -1,232 +1,181 @@
-
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <title>Scrolling Parallax Background</title>
-        <link rel="stylesheet" href="assets/styles.css">
-	<script src="cordova.js"></script>        
-        <script src="js/zepto.js"></script>
-        <script src="js/touch.js"></script>
-        <script src="js/raf.js"></script>
-        <script src="js/index.js"></script>
-        <style>
-
-
-button {
-    width:80px;
-    height:80px;
-    float:left;
-    margin:10px;
-    border-radius: 20px;
-    background: rgba(255,255,255,1);
-}
-
-
-/* using this media query to force center content on my android device (samsung galaxy s4 )*/
-@media screen and (device-aspect-ratio: 9/16) {
-    .content {
-        padding:0px 30px;
-    }
-}
-			* {
-        -webkit-overflow-scrolling: !important;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
-        -webkit-user-select: auto !important;
-}
-html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        //background: #000;
-        text-align: center;
-}
-.drum {
-        width: 10%;
-        height: 20%;
-        float: left;
-        position: relative;
-        border-radius: 30px;
-        outline: 1px solid #000;
-        background: #fff;
-        font-size: 15px;
-        font-family: sans-serif;
-        font-weight: bold;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #999;
-        line-height: 50px;
-        margin-right: 30px;
-}
-.touched {
-        color: #e87fa9;  
-        background-color: #c31b5e;  
-        outline: 1px solid #680b30;
-}
-
-.overlap {
-     background-color: #EEEEEE;
-    border: 1px dashed #333333;
-   width: 100px; /* replace this "xxx" with desired width */
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    position: relative;
-    left: 0px;
-    top: 0px;
-}
-
-.box {
-
-    height: 100%;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    }
-.box div
-{
-    width: 100px;
-    height:100px;
-    background: brown;
-    margin: 0 10px;
-}
-
-         
-		</style>
-        <script type="text/javascript">
-                var lla;
-
-                function onBodyLoad() {		
-                        document.addEventListener("deviceready", onDeviceReady, false);
-                }
-
-                function onDeviceReady() {
-                        if( window.plugins && window.plugins.LowLatencyAudio ) {
-                                //alert("entra aqui...");
-                                lla = window.plugins.LowLatencyAudio;	
-
-                                lla.preloadFX('assets/bass.mp3', 'assets/bass.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
-                                lla.preloadFX('assets/snare.mp3', 'assets/snare.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
-                                lla.preloadFX('assets/highhat.mp3', 'assets/highhat.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
-                                lla.preloadFX('assets/bongo.mp3', 'assets/bongo.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
-                                lla.preloadFX('cymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
-                                lla.preloadFX('drum', 'assets/drum.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	                                          
-                                //lla.unload('cymbal', successHandler, errorHandler);
-                                lla.preloadAudio('background', 'assets/background.mp3', 1);
-
-
-                        }else{
-                            alert("No plugin installed!!");
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height" name="viewport" />
+		<title>Drumpad</title>
+		<script src="cordova.js"></script>
+		<script type="text/javascript">
+			
+			var lla;
+			
+			function onBodyLoad() {		
+				document.addEventListener("deviceready", onDeviceReady, false);
+			}
+			
+			function onDeviceReady() {
+				if( window.plugins && window.plugins.LowLatencyAudio ) {
+					//alert("entra aqui...");
+					lla = window.plugins.LowLatencyAudio;	
+					
+					lla.preloadFX('assets/bass.mp3', 'assets/bass.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+					lla.preloadFX('assets/snare.mp3', 'assets/snare.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+					lla.preloadFX('assets/highhat.mp3', 'assets/highhat.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+					lla.preloadFX('assets/bongo.mp3', 'assets/bongo.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+                                        lla.preloadFX('cymbal', 'assets/cymbal.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });
+					lla.preloadFX('drum', 'assets/drum.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	                                          
+                                        //lla.unload('cymbal', successHandler, errorHandler);
+                                        lla.preloadAudio('background', 'assets/background.mp3', 1);
+                    
+                    
+				}else{
+                                    alert("No plugin installed!!");
+                                }
+			}
+			
+			function play(drum) {
+				document.getElementById(drum).className = 'drum touched';
+				lla.play('assets/' + drum + '.mp3');
+			}
+			
+			function touchEnd(event) {
+				event.target.className = 'drum';
+			}
+                        function loop()
+                        {
+                            lla.loop('background', successHandler, errorHandler);
                         }
-                }
+                        function stoploop()
+                        {
+                            lla.stop('background', successHandler, errorHandler);
+                        }
+                        function successHandler (result) {
+                            alert( result );
+                        }
 
-                function play(drum) {
-                        document.getElementById(drum).className = 'drum touched';
-                        lla.play('assets/' + drum + '.mp3');
-                }
+                        function errorHandler (error) {
+                            alert( error );
+                        }
+                        function overlap()
+                        {
+                            setTimeout( function() {lla.play('cymbal');}, 300 );
+                            setTimeout( function() {lla.play('drum');}, 600 );
+                            setTimeout( function() {lla.play('cymbal');}, 900 );
+                            setTimeout( function() {lla.play('drum');}, 900 );
+                            setTimeout( function() {lla.play('drum');}, 950 );
+                            setTimeout( function() {lla.play('drum');}, 2000 );
+                            setTimeout( function() {lla.play('cymbal');}, 2000 );
+                        }
+			
+		</script>
+                <script>
+                $(function() {
+                $('.loop').click(function() {
+                $('.loop_stop').style.visibility= 'visible';
+                $('.loop').style.visibility= 'hide';
+                });
+                });
+                </script>
+		<style>
+			* {
+				-webkit-overflow-scrolling: !important;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+				-webkit-user-select: auto !important;
+			}
+			html, body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				background: #000;
+                                text-align: center;
+			}
+			.drum {
+				width: 50%;
+				height: 50%;
+				float: left;
+				position: relative;
+				border-radius: 30px;
+				outline: 1px solid #000;
+				background: #fff;
+				font-size: 15px;
+				font-family: sans-serif;
+				font-weight: bold;
+				text-align: center;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				color: #999;
+				line-height: 50px;
+			}
+			.touched {
+				color: #e87fa9;  
+				background-color: #c31b5e;  
+				outline: 1px solid #680b30;
+			}
+                        
+                        .overlap {
+                             background-color: #EEEEEE;
+                            border: 1px dashed #333333;
+                           width: 100px; /* replace this "xxx" with desired width */
+                            margin-top: 0px;
+                            margin-right: auto;
+                            margin-bottom: 0px;
+                            margin-left: auto;
+                            position: relative;
+                            left: 0px;
+                            top: 0px;
+                        }
+                        
+                        .box {
 
-                function touchEnd(event) {
-                        event.target.className = 'drum';
-                }
-                function loop()
-                {
-                    lla.loop('background', successHandler, errorHandler);
-                }
-                function stoploop()
-                {
-                    lla.stop('background', successHandler, errorHandler);
-                }
-                function successHandler (result) {
-                    //alert( result );
-                }
+                            height: 100%;
+                            display: -webkit-box;
+                            display: -moz-box;
+                            display: -ms-flexbox;
+                            display: -webkit-flex;
+                            display: flex;
+                            -webkit-box-direction: normal;
+                            -moz-box-direction: normal;
+                            -webkit-box-orient: horizontal;
+                            -moz-box-orient: horizontal;
+                            -webkit-flex-direction: row;
+                            -ms-flex-direction: row;
+                            flex-direction: row;
+                            -webkit-flex-wrap: wrap;
+                            -ms-flex-wrap: wrap;
+                            flex-wrap: wrap;
+                            -webkit-box-pack: center;
+                            -moz-box-pack: center;
+                            -webkit-justify-content: center;
+                            -ms-flex-pack: center;
+                            justify-content: center;
+                            -webkit-box-align: center;
+                            -moz-box-align: center;
+                            -webkit-align-items: center;
+                            -ms-flex-align: center;
+                            align-items: center;
+                            }
+                        .box div
+                        {
+                            width: 100px;
+                            height:100px;
+                            background: brown;
+                            margin: 0 10px;
+                        }
 
-                function errorHandler (error) {
-                    alert( error );
-                }
-                function overlap()
-                {
-                    setTimeout( function() {lla.play('cymbal');}, 300 );
-                    setTimeout( function() {lla.play('drum');}, 600 );
-                    setTimeout( function() {lla.play('cymbal');}, 900 );
-                    setTimeout( function() {lla.play('drum');}, 900 );
-                    setTimeout( function() {lla.play('drum');}, 950 );
-                    setTimeout( function() {lla.play('drum');}, 2000 );
-                    setTimeout( function() {lla.play('cymbal');}, 2000 );
-                }
-
-        </script>
-    </head>
-    <body onload="onBodyLoad();">
-        
-        <div class="content"> 
-            
-            <div class="drum" id="bass" ontouchstart="play('bass');" ontouchend="touchEnd(event);">Bass</div>
-            <div class="drum" id="highhat" ontouchstart="play('highhat');" ontouchend="touchEnd(event);">High Hat</div>
-            <div class="drum" id="snare" ontouchstart="play('snare');" ontouchend="touchEnd(event);">Snare</div>
-            <div class="drum" id="bongo" ontouchstart="play('bongo');" ontouchend="touchEnd(event);">Bongo</div>
-            <!--<div class="container"><div class="box"></div></div>-->
-            <div class="loop drum" ontouchstart="loop();" >Loop</div>
-            <div class="loop_stop hide drum" ontouchstart="stoploop();" >Stop Loop</div>
-            <div class="overlap drum" ontouchstart="overlap();" >Overlap</div>
-            
-            <div style="display:none" id="navigation" class="page transition">
-                <button class="forward"><img src="assets/airplane.png" /></button>
-                <button class="forward"><img src="assets/crosshair.png" /></button>
-                <button class="forward"><img src="assets/currency.png" /></button>
-                <button class="forward"><img src="assets/leaf.png" /></button>  
-            </div>
-            
-            <div id="details" class="page right transition">
-                <div class="page_content">
-                    <button class="back"></button>
-                    <span class="title">Level 1</span> 
-                    
-                    <div id="main_container">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </p>
-                        <p><button class="forward">forward</button></p>
-                        <p>Suspendisse hendrerit turpis eu elit sagittis varius. Maecenas tristique leo eros, et semper metus ultrices id. Proin quis lectus neque. Duis lacinia sapien eu tempor posuere. </p>
-                    </div>
+		</style>
+	</head>
+	<body onload="onBodyLoad();">
+		<div class="box">
+                    <div class="drum" id="bass" ontouchstart="play('bass');" ontouchend="touchEnd(event);">Bass</div>
+                    <div class="drum" id="highhat" ontouchstart="play('highhat');" ontouchend="touchEnd(event);">High Hat</div>
+                    <div class="drum" id="snare" ontouchstart="play('snare');" ontouchend="touchEnd(event);">Snare</div>
+                    <div class="drum" id="bongo" ontouchstart="play('bongo');" ontouchend="touchEnd(event);">Bongo</div>
+                    <!--<div class="container"><div class="box"></div></div>-->
+                    <div class="loop drum" ontouchstart="loop();" >Loop</div>
+                    <div class="loop_stop hide drum" ontouchstart="stoploop();" >Stop Loop</div>
+                    <div class="overlap drum" ontouchstart="overlap();" >Overlap</div>
                 </div>
-            </div>
-            
-            <div id="inner_details" class="page right transition">
-                <div class="page_content">
-                    <button class="back"></button>
-                    <span class="title">Level 2</span>
-                    
-                    <div id="main_container">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </p>
-                        <p>Suspendisse hendrerit turpis eu elit sagittis varius. Maecenas tristique leo eros, et semper metus ultrices id. Proin quis lectus neque. Duis lacinia sapien eu tempor posuere. </p>
-                        <p>Proin convallis pellentesque enim, ac consectetur velit tincidunt eu. In eget bibendum purus. Praesent non mi eu risus pharetra convallis. </p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </body>
+	</body>
 </html>
